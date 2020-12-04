@@ -41,7 +41,7 @@ class HotelListFragment : ListFragment(), HotelListView
     override fun onListItemClick(l: ListView, v: View, position: Int, id: Long)
     {
         super.onListItemClick(l, v, position, id)
-        val hotel = l?.getItemAtPosition(position) as Hotel
+        val hotel = l.getItemAtPosition(position) as Hotel
         presenter.showHotelDetails(hotel)
     }
 
@@ -49,4 +49,15 @@ class HotelListFragment : ListFragment(), HotelListView
     {
         fun onHotelClick(hotel: Hotel)
     }
+
+    fun search(text:String)
+    {
+        presenter.searchHotels(text)
+    }
+
+    fun cleanSearch()
+    {
+        presenter.searchHotels("")
+    }
+
 }
